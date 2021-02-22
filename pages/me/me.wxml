@@ -1,0 +1,17 @@
+<!--pages/me/me.wxml-->
+<view class="Rose-detail">
+  <view class="Rose-title">虫子</view>
+  <view class="Rose-content">
+    <view class="Rose-item">
+      <view class="Rose-line">博客地址：</view>
+    </view>
+    <view class="Rose-item">
+      <view class="Rose-line">关注我:</view>
+    </view>
+    <view class="Rose-item">
+      <view class="Rose-line">联系我：</view>
+      <text class="Rose-concact">QQ: 168700784 </text>
+      <text class="Rose-concact">Whchat: WormerTan</text>
+    </view>
+  </view>
+</view>

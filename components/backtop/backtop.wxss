@@ -1,0 +1,81 @@
+/* components/backtop/backtop.wxss */
+@import "/assets/icon/iconfont";
+
+.Rose-backtop {
+  position: fixed;
+  width: 60rpx;
+  height: 60rpx;
+  right: 20rpx;
+  bottom: 120rpx;
+  border: 2rpx solid #adb4b1;
+  z-index: 2;
+  border-radius: 4rpx;
+  background: #fff;
+  color: #adb4b1;
+  text-align: center;
+  line-height: 60rpx;
+}
+
+.icon-dingbu {
+  font-size: 36rpx;
+}
+
+.fadeInUp {
+  animation: fadeInUp 0.5s linear;
+}
+
+.fadeOutDown {
+  animation: fadeOutDown 0.12s linear;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@-webkit-keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+}

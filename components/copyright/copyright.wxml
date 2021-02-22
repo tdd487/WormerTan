@@ -1,0 +1,15 @@
+<!--components/copyright/copyright.wxml-->
+<!-- 版权 -->
+<!-- <template name="copyright">
+    <view class="Rose-copyRight">
+      <view class="虫子-name">虫子博客</view>
+      Copyright © 2014-{{yearss}} 虫子. All Rights Reserved.
+  </view>
+</template> -->
+<!-- /版权 -->
+<view>
+    <view class="Rose-copyRight">
+      <view class="虫子-name">虫子博客</view>
+      Copyright © 2014-{{yearss}} 虫子. All Rights Reserved.
+  </view>
+</view>

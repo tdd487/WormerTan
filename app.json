@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/detail/detail",
+    "pages/about/about",
+    "pages/project/project",
+    "pages/more/more",
+    "pages/feedback/feedback",
+    "pages/lists/lists",
+    "pages/me/me"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#adb4b1",
+    "navigationBarTitleText": "虫子博客-记录学习和生活",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 50
+  },
+  "tabBar": {
+    "color": "#fff",
+    "position": "bottom",
+    "backgroundColor": "#adb4b1",
+    "selectedColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "assets/nav/home.png",
+        "selectedIconPath": "assets/nav/home_fill.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "assets/nav/user.png",
+        "selectedIconPath": "assets/nav/user_fill.png",
+        "text": "我"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
+}

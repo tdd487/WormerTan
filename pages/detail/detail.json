@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "文章详情",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "loading": "../../components/loading/loading",
+    "backtop": "../../components/backtop/backtop",
+    "bottombar": "../../components/bottombar/bottombar",
+    "copyright": "../../components/copyright/copyright"
+  }
+  
+}

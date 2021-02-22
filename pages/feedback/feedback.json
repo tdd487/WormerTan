@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "留言",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "loading": "../../components/loading/loading",
+    "share": "../../components/share/share",
+    "backtop": "../../components/backtop/backtop"
+  }
+}

@@ -1,0 +1,151 @@
+/* pages/lists/lists.wxss */
+
+.Rose-fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 130rpx;
+  padding: 0 20rpx;
+  margin-bottom: 20rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #f2f2f2;
+}
+
+.Rose-imgnotice {
+  flex: none;
+  width: 240rpx;
+  max-height: 140rpx;
+  margin: 10rpx 20rpx 0 0;
+  border-radius: 4rpx;
+}
+
+.Rose-list {
+  margin: 150rpx 0 0 0;
+  padding: 0 20rpx;
+  background: #fff;
+}
+
+.Rose-article {
+  padding: 20rpx 0;
+  display: flex;
+}
+
+.Rose-title {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.Rose-title:before {
+  position: absolute;
+  top: 10rpx;
+  right: 0;
+  width: 2rpx;
+  height: 70rpx;
+  background: #f2f2f2;
+  content: '';
+}
+
+.Rose-title:last-child:before {
+  background: transparent;
+}
+
+.Rose-title:after {
+  position: absolute;
+  bottom: -20rpx;
+  left: 50%;
+  width: 0;
+  height: 4rpx;
+  background: transparent;
+  content: '';
+  transition: all 0.25s linear;
+}
+
+.Rose-title.active:after {
+  width: 100%;
+  left: 0;
+  background: #599eec;
+}
+
+.Rose-title .iconfont {
+  font-size: 52rpx;
+  display: block;
+  color: #666;
+}
+
+.Rose-title.active .iconfont, .Rose-title.active {
+  color: #599eec;
+}
+
+.Rose-Line .iconfont {
+  color: #599eec;
+  font-size: 46rpx;
+  padding-right: 10rpx;
+  vertical-align: bottom;
+}
+
+.Rose-Line .iconfont.fr {
+  float: right;
+  color: #a8a8a8;
+  padding-right: 0;
+  font-size: 30rpx;
+}
+
+.Rose-item {
+  display: flex;
+  padding: 30rpx 0;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+
+.Rose-aign {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+.Rose-name {
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.4;
+  text-align: left;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 0 0 20rpx;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.Rose-description {
+  font-size: 28rpx;
+  color: #666;
+  display: -webkit-box;
+  overflow: hidden;
+  line-height: 1.6;
+  text-align: left;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.Rose-time {
+  display: flex;
+  width: 100%;
+  color: #999;
+  font-size: 24rpx;
+  justify-content: space-between;
+}
+
+.Rose-time .iconfont {
+  font-size: 26rpx;
+  margin: -20rpx 0 0;
+}
+
+.Rose-comment {
+  margin-left: 20rpx;
+}

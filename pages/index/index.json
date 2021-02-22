@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "虫子博客",
+  "usingComponents": {
+    "loading": "../../components/loading/loading",
+    "backtop": "../../components/backtop/backtop"
+  }
+}

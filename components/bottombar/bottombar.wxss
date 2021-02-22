@@ -1,0 +1,114 @@
+/* components/bottombar/bottombar.wxss */
+@import "/assets/icon/iconfont";
+.Rose-left {
+  float: left
+}
+.Rose-right {
+  float: right
+}
+.Rose-center {
+  text-align: center
+}
+.Rose-comments {
+  position: fixed;
+  left: 0;
+  bottom: 115rpx;
+  width: 100%;
+  z-index: 4;
+  background: #fefefe;
+  border-top: 2rpx solid #d9d9d9;
+  transition: all 0.25s ease;
+}
+.Rose-post {
+  width: auto;
+  height: 200rpx;
+  margin: 20rpx 40rpx 0;
+  padding: 10rpx;
+  background: #eee;
+  color: #333;
+  font-size: 28rpx;
+  border-radius: 8rpx;
+}
+.Rose-btn {
+  background: #4bb777;
+  margin: 20rpx 40rpx;
+  color: #fff;
+  font-size: 26rpx;
+  border-radius: 8rpx;
+  padding: 0 20rpx;
+  text-align: center;
+  box-shadow: none;
+}
+.Rose-btn.disabled {
+  opacity: 0.5;
+  color: #eee
+}
+.Rose-close {
+  background: #DEDEDE
+}
+.Rose-tool {
+  color: #999;
+  font-size: 18rpx;
+  padding: 10rpx 0;
+  line-height: 40rpx;
+  border-bottom: 1rpx solid #f2f2f2
+}
+.Rose-flex {
+  display: flex;
+}
+.Rose-flex1 {
+  flex: 1
+}
+.Rose-tool .iconfont {
+  display: block;
+  color: #333;
+  font-size: 48rpx;
+  color: #4bb777;
+  font-weight: 500
+}
+.Rose-content {
+  padding: 60rpx 0;
+}
+.Rose-share {
+  font-size: 18rpx;
+  color: #999;
+  line-height: 40rpx;
+  background: transparent;
+}
+.animated {
+  animation-duration: 0.5s;
+  animation-fill-mode: both
+}
+.animated.infinite {
+  animation-iteration-count: infinite
+}
+@keyframes slideInUp {
+  from {
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+    visibility: visible
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+  }
+}
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+  animation-name: slideInUp
+}
+@keyframes slideOutDown {
+  from {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0)
+  }
+  to {
+    visibility: hidden;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0)
+  }
+}
+.slideOutDown {
+  -webkit-animation-name: slideOutDown;
+  animation-name: slideOutDown
+}
