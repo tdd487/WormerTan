@@ -8,10 +8,7 @@ Page({
    */
   data: {
     isPlay: true,
-    notices: [
-      {id:1,catid:1,title:'布洛芬续命',description:'布洛芬是种美好的药物，吃了头不痛，腰不酸，就是想睡觉'},
-      {id:2,catid:2,title:'沙袋',description:'腰酸背痛，肩膀硬，最爱的就是沙袋了'},
-    ],
+    notices: [],
     items: [],
     loadMore: false,
     every: [{
@@ -97,11 +94,11 @@ Page({
   getLists(e) {
     let that = this;
     let params = {
-      page: page,
+      pageNo: page,
       pagesize: 8
     }
     Api.all(params).then(res => { //文章列表
-      if (!res.data.code) {
+      if (200 == res.data.code) {
         let _data = res.data.data;
         let _items = [...that.data.items, ..._data];
         if (_data.length < 8) {
@@ -112,6 +109,7 @@ Page({
         that.setData({
           items: _items
         });
+        console.log(_items);
       }
     });
   },
@@ -129,19 +127,20 @@ Page({
     var that = this;
     let _params = {
       catid: 21, //项目id
-      page: 1,
+      pageNo: 1,
       pagesize: 3 // 可选，默认为为5
     }
-    // Api.lists(_params).then(res => {
-    //   if (!that.data.code) {
-    //     let _data = res.data.data;
-    //     that.setData({
-    //       notices: _data,
-    //     })
-    //     that.getLists();
-    //     wx.hideLoading();
-    //   }
-    // });
+    Api.lists(_params).then(res => {
+      console.log("你是睡");
+      if (!that.data.code) {
+        let _data = res.data.data;
+        that.setData({
+          notices: _data,
+        })
+        that.getLists();
+        wx.hideLoading();
+      }
+    });
   },
   onPageScroll(e) {
     var _backShow = false;

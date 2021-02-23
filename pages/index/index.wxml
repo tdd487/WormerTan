@@ -1,18 +1,18 @@
 <!--pages/index/index.wxml-->
 <wxs module="comm" src="../comm.wxs"></wxs>
-<view class="Rose-floor1">
-  <swiper class="Rose-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{30000}}" duration="{{200}}" circular="{{true}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="rgba(255,255,255,0.8)">
+<view class="Worm-floor1">
+  <swiper class="Worm-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{30000}}" duration="{{200}}" circular="{{true}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="rgba(255,255,255,0.8)">
     <swiper-item wx:for="{{notices}}" wx:key="index" wx:for-item="notice" data-id="{{notice.id}}" data-catid="{{notice.catid}}" ontap="">
-      <view class="Rose-top-quote">{{notice.title}}</view>
+      <view class="Worm-top-quote">{{notice.title}}</view>
       {{notice.description}}
     </swiper-item>
   </swiper>
 </view>
-<view class="Rose-floor2">
-  <!--<view class="Rose-menu">
-    <view class="Rose-kinds" wx:for="{{every}}" wx:for-item="i" wx:key="index" >
+<view class="Worm-floor2">
+  <!--<view class="Worm-menu">
+    <view class="Worm-kinds" wx:for="{{every}}" wx:for-item="i" wx:key="index" >
       <navigator url="../more/more?catid={{ i.id }}" hover-class="none">
-        <view class="Rose-circle Rose-{{'color'+ i.id}}">
+        <view class="Worm-circle Rose-{{'color'+ i.id}}">
           <icon class="iconfont {{i.icon}}"></icon>
         </view>
         {{i.name}}
@@ -21,23 +21,23 @@
   </view>-->
 </view>
 <!-- 菜单 -->
-<view class="Rose-lists">
-  <view class="Rose-news" wx:for="{{items}}" wx:key="index" data-id="{{item.id}}" data-catid="{{item.catid}}" ontap="articleDetail" wx:if="{{ item.id != '124' && item.id !='145' }}">
-    <view class="Rose-content">
-      <view class='Rose-imgitem'>
-        <image class='Rose-imgitem' mode="aspectFill" lazy-load="{{true}}" src="{{item.thumb==''? '/assets/images/ncode.jpg': item.thumb}}"></image>
+<view class="Worm-lists">
+  <view class="Worm-news" wx:for="{{items}}" wx:key="index" data-id="{{item.id}}" data-catid="{{item.catid}}" ontap="articleDetail" wx:if="{{ item.id != '124' && item.id !='145' }}">
+    <view class="Worm-content">
+      <view class='Worm-imgitem'>
+        <image class='Worm-imgitem' mode="aspectFill" lazy-load="{{true}}" src="{{item.thumb==''? '/assets/images/ncode.jpg': item.thumb}}"></image>
       </view>
-      <view class="Rose-title">{{item.title}}</view>
-      <view class="Rose-bottom">
-        <view class="Rose-icon">
+      <view class="Worm-title">{{item.title}}</view>
+      <view class="Worm-bottom">
+        <view class="Worm-icon">
           <icon class="iconfont icon-shijian2"></icon> {{comm.formatDate(item.updatetime)}}
         </view>
-        <view class="Rose-icon">
+        <view class="Worm-icon">
           <icon class="iconfont icon-kanguo"></icon> {{item.views}}</view>
-        <view class="Rose-icon">
+        <view class="Worm-icon">
           <icon class="iconfont icon-pinglun"></icon> {{item.cnum}}</view>
       </view>
-      <view class="Rose-detail">{{item.description}}</view>
+      <view class="Worm-detail">{{item.description}}</view>
     </view>
   </view>
 </view>

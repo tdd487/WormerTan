@@ -3,17 +3,17 @@ image {
   width: 100%;
 }
 
-.Rose-box {
+.Worm-box {
   background: #fff;
 }
 
-.Rose-imgitem {
+.Worm-imgitem {
   height: 330rpx;
   display: block;
   width: 100%;
 }
 
-.Rose-description {
+.Worm-description {
   padding: 20rpx;
   margin: 20rpx 0;
   background: #eef0f4;
@@ -22,12 +22,12 @@ image {
   border-left: 16rpx solid #dddfe4;
 }
 
-.Rose-content {
+.Worm-content {
   overflow: hidden;
   word-break: break-word;
 }
 
-.Rose-detail {
+.Worm-detail {
   font-size: 32rpx;
   line-height: 1.8;
   padding: 20rpx;
@@ -35,25 +35,25 @@ image {
   background: #fff;
 }
 
-.Rose-title {
+.Worm-title {
   color: #000;
   font-size: 48rpx;
   line-height: 1.4;
 }
 
-.Rose-addtime {
+.Worm-addtime {
   display: flex;
   margin: 0 0 40rpx;
   color: #999;
   font-size: 24rpx;
 }
 
-.Rose-addtime .iconfont {
+.Worm-addtime .iconfont {
   font-size: 24rpx;
   margin-right: 6rpx;
 }
 
-.Rose-keywords {
+.Worm-keywords {
   margin-right: 20rpx;
 }
 
@@ -67,7 +67,7 @@ image {
   -webkit-overflow-scrolling: touch;
 }
 
-.Rose-small {
+.Worm-small {
   padding: 0 10rpx;
   font-size: 30rpx;
   color: #999;
@@ -79,14 +79,14 @@ image {
   word-break: break-word;
 }
 
-.Rose-lines, .wxParse-h3 {
+.Worm-lines, .wxParse-h3 {
   font-size: 36rpx;
   position: relative;
   padding: 10rpx 20rpx;
   color: #333;
 }
 
-.Rose-lines:before, .wxParse-h3:before {
+.Worm-lines:before, .wxParse-h3:before {
   position: absolute;
   top: 16rpx;
   left: 0;
@@ -133,19 +133,19 @@ image {
 
 /*top10推荐*/
 
-.Rose-top {
+.Worm-top {
   background: #fff;
   padding: 20rpx 0;
 }
 
-.Rose-topli {
+.Worm-topli {
   position: relative;
   padding: 20rpx 20rpx 20rpx 40rpx;
   font-size: 28rpx;
   color: #999;
 }
 
-.Rose-topli:before {
+.Worm-topli:before {
   position: absolute;
   left: 20rpx;
   top: 34rpx;
@@ -156,19 +156,19 @@ image {
   border-radius: 100%;
 }
 
-.Rose-read {
+.Worm-read {
   margin: 40rpx 0 0;
   color: #999;
   font-size: 30rpx;
 }
 
-.Rose-Right {
+.Worm-Right {
   float: right;
   font-size: 32rpx;
   color: #999;
 }
 
-.Rose-Right .iconfont {
+.Worm-Right .iconfont {
   margin-top: -8rpx;
   vertical-align: middle;
   font-size: 34rpx;
@@ -180,7 +180,7 @@ image {
   color: #4bb777;
 }
 
-/*.Rose-fixed {
+/*.Worm-fixed {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -189,11 +189,11 @@ image {
   z-index: 5;
   background: #fff;
 }
-.Rose-flex {
+.Worm-flex {
   padding: 14rpx 20rpx;
   display: flex;
 }
-.Rose-input {
+.Worm-input {
   flex: 1;
   height: 76rpx;
   line-height: 76rpx;
@@ -212,7 +212,7 @@ button::after {
   border: 1px solid #d9d9d9;
   border-radius: 4rpx;
 }
-.Rose-post {
+.Worm-post {
   flex: none;
   height: 80rpx;
   background: #4bb777;
@@ -228,27 +228,27 @@ button::after {
 
 /*最新*/
 
-.Rose-comments {
+.Worm-comments {
   background: #fff;
   padding: 20rpx 0 0;
 }
 
-.Rose-lists {
+.Worm-lists {
   padding: 20rpx;
 }
 
-.Rose-resource {
+.Worm-resource {
   display: flex;
 }
 
-.Rose-image {
+.Worm-image {
   flex: none;
   width: 80rpx;
   height: 80rpx;
   border-radius: 4rpx;
 }
 
-.Rose-user {
+.Worm-user {
   flex: 1;
   padding: 0 0 20rpx;
   font-size: 24rpx;
@@ -257,36 +257,36 @@ button::after {
   border-bottom: 1rpx solid #f2f2f2;
 }
 
-.Rose-items {
+.Worm-items {
   padding: 30rpx 0 0;
 }
 
-.Rose-items:last-child .Rose-user {
+.Worm-items:last-child .Worm-user {
   border-bottom: none;
 }
 
-.Rose-form {
+.Worm-form {
   margin: 0 0 0 20rpx;
 }
 
-.Rose-names {
+.Worm-names {
   font-size: 28rpx;
   color: #666;
 }
 
-.Rose-times {
+.Worm-times {
   padding: 16rpx 0;
   color: #999;
   font-size: 20rpx;
 }
 
-.Rose-comment-content {
+.Worm-comment-content {
   color: #666;
   font-size: 32rpx;
   line-height: 44rpx;
 }
 
-.Rose-back {
+.Worm-back {
   margin: 20rpx 0 0 20rpx;
   color: #999;
   font-size: 28rpx;
@@ -295,30 +295,30 @@ button::after {
   background: #f5f5f5;
 }
 
-.Rose-back-item {
+.Worm-back-item {
   line-height: 1.4;
   word-break: break-all;
   padding: 5rpx 0;
 }
 
-.Rose-tt {
+.Worm-tt {
   color: #333;
 }
 
-.Rose-empty {
+.Worm-empty {
   padding: 60rpx 0 80rpx;
   text-align: center;
   font-size: 14px;
   color: #999;
 }
 
-.Rose-finish {
+.Worm-finish {
   padding: 30rpx 0;
   text-align: center;
   color: #999;
 }
 
-.Rose-end {
+.Worm-end {
   padding: 30rpx 0;
   text-align: center;
   line-height: 1;
@@ -326,7 +326,7 @@ button::after {
   color: #999;
 }
 
-.Rose-word {
+.Worm-word {
   line-height: 1;
   padding: 30rpx 0;
   font-size: 28rpx;
@@ -340,14 +340,14 @@ button::after {
   margin-bottom: 10rpx;
 }
 
-.Rose-link {
+.Worm-link {
   margin: 20rpx 0 0;
   padding: 5rpx;
   background: #f5f5f5;
   color: #999;
 }
 
-.Rose-fixed {
+.Worm-fixed {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -357,12 +357,12 @@ button::after {
   background: #fff;
 }
 
-.Rose-flex {
+.Worm-flex {
   padding: 12rpx 20rpx;
   display: flex;
 }
 
-.Rose-none {
+.Worm-none {
   width: 80rpx;
   flex: none;
   font-size: 20rpx;
@@ -370,18 +370,18 @@ button::after {
   line-height: 40rpx;
 }
 
-.Rose-none .iconfont {
+.Worm-none .iconfont {
   display: block;
   font-size: 48rpx;
   color: #4bb777;
   font-weight: 600;
 }
 
-.Rose-none .iconfont.icon-heart-fill {
+.Worm-none .iconfont.icon-heart-fill {
   color: #4bb777;
 }
 
-.Rose-input {
+.Worm-input {
   flex: 1;
   margin: 0 0 0 10rpx;
   height: 80rpx;
@@ -396,7 +396,7 @@ button::after {
 
 /* components/photo/photo.wxss */
 
-.Rose-photo {
+.Worm-photo {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
@@ -408,7 +408,7 @@ button::after {
   z-index: 10;
 }
 
-.Rose-done {
+.Worm-done {
   width: 80%;
   height: 80%;
   position: fixed;
@@ -418,7 +418,7 @@ button::after {
   z-index: 10;
 }
 
-.Rose-btn {
+.Worm-btn {
   display: block;
   width: 40%;
   height: 100rpx;
@@ -434,29 +434,29 @@ button::after {
   z-index: 11;
 }
 
-.Rose-save {
+.Worm-save {
   left: 50%;
   color: #adb4b1;
 }
 
-.Rose-close {
+.Worm-close {
   left: 10%;
 }
 
-.Rose-canvas {
+.Worm-canvas {
   width: 0;
   height: 0;
   overflow: hidden;
 }
 
-.Rose-flexform {
+.Worm-flexform {
   flex: 1;
   margin: 0 20rpx 0 0;
   height: 80rpx;
   line-height: 80rpx;
 }
 
-.Rose-post {
+.Worm-post {
   flex: none;
   height: 83rpx;
   background: #4bb777;

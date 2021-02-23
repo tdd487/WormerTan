@@ -1,26 +1,26 @@
-.Rose-floor1 {
+.Worm-floor1 {
   background: #adb4b1;
   color: #fff;
   font-size: 26rpx;
 }
 
-.Rose-swiper {
+.Worm-swiper {
   height: 260rpx;
   padding: 40rpx 40rpx 0;
   text-align: center;
 }
 
-.Rose-top-quote {
+.Worm-top-quote {
   margin: 0 20rpx 30rpx;
   font-size: 32rpx;
   text-align: center;
 }
 
-.Rose-floor2 {
+.Worm-floor2 {
   background: #fff;
 }
 
-.Rose-menu {
+.Worm-menu {
   padding: 40rpx 30rpx 20rpx;
   display: flex;
   flex-flow: row;
@@ -31,14 +31,14 @@
   padding-left: 20rpx;
 }
 
-.Rose-news {
+.Worm-news {
   overflow: hidden;
   margin: 20rpx;
   background: #fff;
   border-radius: 8rpx;
 }
 
-.Rose-title {
+.Worm-title {
   display: -webkit-box;
   margin: 10rpx 20rpx 0;
   font-size: 34rpx;
@@ -47,7 +47,7 @@
   word-break: break-word;
 }
 
-.Rose-imgitem {
+.Worm-imgitem {
   flex: none;
   width: 100%;
   height: 300rpx;
@@ -55,12 +55,12 @@
   display: block;
 }
 
-.Rose-content {
+.Worm-content {
   position: relative;
   color: #333;
 }
 
-.Rose-detail {
+.Worm-detail {
   padding: 10rpx 20rpx 20rpx;
   font-size: 28rpx;
   color: #999;
@@ -68,7 +68,7 @@
   line-height: 1.5;
 }
 
-.Rose-bottom {
+.Worm-bottom {
   position: absolute;
   top: 244rpx;
   width: 100%;
@@ -80,36 +80,36 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-.Rose-icon {
+.Worm-icon {
   font-size: 24rpx;
   margin-right: 24rpx;
 }
 
-.Rose-bottom .iconfont {
+.Worm-bottom .iconfont {
   margin: -22rpx 0 0;
   font-size: 24rpx;
 }
 
-.Rose-menu {
+.Worm-menu {
   padding: 20rpx;
   display: flex;
   flex-flow: row;
   justify-content: space-between;
 }
 
-.Rose-kinds {
+.Worm-kinds {
   width: 90rpx;
   text-align: center;
   font-size: 24rpx;
   color: #333;
 }
 
-.Rose-kinds .iconfont {
+.Worm-kinds .iconfont {
   font-size: 46rpx;
   display: block;
 }
 
-.Rose-circle {
+.Worm-circle {
   border-radius: 100%;
   color: #fff;
   width: 90rpx;
@@ -118,7 +118,7 @@
   margin: 0 auto 8rpx;
 }
 
-.Rose-music {
+.Worm-music {
   position: absolute;
   right: 20rpx;
   top: 0;
@@ -129,12 +129,12 @@
   z-index: 2;
 }
 
-.Rose-play {
+.Worm-play {
   position: relative;
   line-height: 72rpx;
 }
 
-.Rose-rotate {
+.Worm-rotate {
   animation: rotate 1s linear infinite;
 }
 

@@ -1,26 +1,26 @@
 import MyHttp from './request.js';
 //所有的请求
 const ALL_API = {
-  // all: { //全部文章
-  //   method: 'POST',
-  //   url: '/index.php?m=content&c=api&a=index'
-  // },
+  all: { //全部文章
+    method: 'POST',
+    url: '/article'
+  },
   // hits: { //top10
   //   method: 'POST',
-  //   url: '/index.php?m=content&c=api&a=hits'
+  //   url: '/article'
   // },
   lists: { //分类文章
     method: 'POST',
-    url: '/index.php?m=content&c=api&a=lists'
+    url: '/article'
   },
-  // pageitem: { //详情
-  //   method: 'POST',
-  //   url: '/index.php?m=content&c=api&a=show'
-  // },
-  // commentlists: { //文章列表
-  //   method: 'POST',
-  //   url: '/index.php?m=content&c=wxcomment&a=lists'
-  // },
+  pageitem: { //详情
+    method: 'POST',
+    url: '/articleById'
+  },
+  commentlists: { //文章列表
+    method: 'POST',
+    url: ''
+  },
   // postcomments: { //发布评论
   //   method: 'POST',
   //   url: '/index.php?m=content&c=wxcomment&a=publish'

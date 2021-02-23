@@ -123,11 +123,10 @@ Page({
   getData() {
     var that = this;
     let _params = {
-      catid: that.data.catid,
       id: that.data.id
     };
     Api.pageitem(_params).then(res => {
-      if (!res.data.code) {
+      if (200 == res.data.code) {
         wx.hideLoading();
         let _data = res.data.data;
         var _tpl = _data.content;
@@ -332,28 +331,28 @@ Page({
       page: that.data.page,
       pagesize: 10
     }
-    Api.commentlists(_params).then(res => {
-      if (res.data.code == 0) {
-        let _data = res.data.data;
-        let _count = res.data.count;
-        let _arr = that.data.comments.concat(_data);
-        that.setData({
-          comments: _arr,
-          count: _count
-        });
-        if (_data.length < 10) {
-          that.setData({
-            loadMore: false
-          });
-        }
-      } else {
-        wx.showModal({
-          showCancel: false,
-          confirmColor: '#adb4b1',
-          content: '评论加载失败!'
-        })
-      }
-    });
+    // Api.commentlists(_params).then(res => {
+    //   if (res.data.code == 0) {
+    //     let _data = res.data.data;
+    //     let _count = res.data.count;
+    //     let _arr = that.data.comments.concat(_data);
+    //     that.setData({
+    //       comments: _arr,
+    //       count: _count
+    //     });
+    //     if (_data.length < 10) {
+    //       that.setData({
+    //         loadMore: false
+    //       });
+    //     }
+    //   } else {
+    //     wx.showModal({
+    //       showCancel: false,
+    //       confirmColor: '#adb4b1',
+    //       content: '评论加载失败!'
+    //     })
+    //   }
+    // });
   },
   forRemark(e) {
     var that = this;
@@ -411,9 +410,9 @@ Page({
   */
   createNewImg: function(codes, img, title, desc) {
     var that = this;
-    var Rose = wx.createCanvasContext('mycanvas');
-    Rose.setFillStyle("#ffffff")
-    Rose.fillRect(0, 0, 600, 1000); //填充一个矩形。用 setFillStyle
+    var Worm = wx.createCanvasContext('mycanvas');
+    Worm.setFillStyle("#ffffff")
+    Worm.fillRect(0, 0, 600, 1000); //填充一个矩形。用 setFillStyle
     wx.getImageInfo({
       src: img, //服务器返回的图片地址
       success: function(res) {
@@ -421,66 +420,66 @@ Page({
         var datee = new Date();
         var cctime = util.formatTime(datee);
         var bg = "/assets/images/44.png";
-        Rose.drawImage(bg, 0, 737, 640, 395); //绘制首图
-        Rose.drawImage(thumb, 20, 140, 560, 300); //绘制首图
-        Rose.drawImage(codes, 360, 720, 200, 200); //绘制二维码
-        Rose.setFontSize(30);
-        Rose.setTextAlign('right'); //设置字体对齐
-        Rose.setFillStyle('#adb4b1');
-        Rose.fillText('虫子博客', 560, 60);
-        Rose.setFontSize(20);
-        Rose.setFillStyle('#666');
-        Rose.fillText(cctime, 560, 120);
-        Rose.beginPath();
-        Rose.lineWidth = "2";
-        Rose.strokeStyle = "#adb4b1";
-        Rose.rect(400, 20, 180, 60);
-        Rose.stroke();
-        Rose.beginPath();
-        Rose.lineWidth = "2";
-        Rose.strokeStyle = "#f2f2f2";
-        Rose.rect(20, 690, 570, 230);
-        Rose.stroke();
-        Rose.setFillStyle("#333");
-        Rose.setFontSize(20); //设置字体大小
-        Rose.setTextAlign('center'); //设置字体对齐
-        Rose.beginPath() //分割线
-        Rose.stroke();
-        Rose.setTextAlign('left');
-        Rose.setFontSize(40);
+        Worm.drawImage(bg, 0, 737, 640, 395); //绘制首图
+        Worm.drawImage(thumb, 20, 140, 560, 300); //绘制首图
+        Worm.drawImage(codes, 360, 720, 200, 200); //绘制二维码
+        Worm.setFontSize(30);
+        Worm.setTextAlign('right'); //设置字体对齐
+        Worm.setFillStyle('#adb4b1');
+        Worm.fillText('虫子博客', 560, 60);
+        Worm.setFontSize(20);
+        Worm.setFillStyle('#666');
+        Worm.fillText(cctime, 560, 120);
+        Worm.beginPath();
+        Worm.lineWidth = "2";
+        Worm.strokeStyle = "#adb4b1";
+        Worm.rect(400, 20, 180, 60);
+        Worm.stroke();
+        Worm.beginPath();
+        Worm.lineWidth = "2";
+        Worm.strokeStyle = "#f2f2f2";
+        Worm.rect(20, 690, 570, 230);
+        Worm.stroke();
+        Worm.setFillStyle("#333");
+        Worm.setFontSize(20); //设置字体大小
+        Worm.setTextAlign('center'); //设置字体对齐
+        Worm.beginPath() //分割线
+        Worm.stroke();
+        Worm.setTextAlign('left');
+        Worm.setFontSize(40);
         if (title.length <= 14) {
-          Rose.fillText(title, 40, 500); //文章标题
+          Worm.fillText(title, 40, 500); //文章标题
         } else {
-          Rose.fillText(title.substring(0, 14), 40, 500);
-          Rose.fillText(title.substring(14, 26), 40, 550);
+          Worm.fillText(title.substring(0, 14), 40, 500);
+          Worm.fillText(title.substring(14, 26), 40, 550);
         }
-        Rose.setFillStyle("#999");
-        Rose.setFontSize(20);
+        Worm.setFillStyle("#999");
+        Worm.setFontSize(20);
         if (title.length <= 14 && desc.length >= 26) {
-          Rose.fillText(desc.substring(0, 26), 40, 560);
-          Rose.fillText(desc.substring(26, 50) + '...', 40, 595);
+          Worm.fillText(desc.substring(0, 26), 40, 560);
+          Worm.fillText(desc.substring(26, 50) + '...', 40, 595);
         } else if (title.length <= 14 && desc.length <= 26) {
-          Rose.fillText(desc, 26, 560);
+          Worm.fillText(desc, 26, 560);
         } else if (title.length >= 14 && desc.length <= 26) {
-          Rose.fillText(desc, 26, 640); //文章描述
+          Worm.fillText(desc, 26, 640); //文章描述
         } else {
-          Rose.fillText(desc.substring(0, 26), 40, 610);
-          Rose.fillText(desc.substring(26, 50) + '...', 40, 645);
+          Worm.fillText(desc.substring(0, 26), 40, 610);
+          Worm.fillText(desc.substring(26, 50) + '...', 40, 645);
         }
-        Rose.setTextAlign('left');
-        Rose.setFontSize(28);
-        Rose.setFillStyle('#666');
-        Rose.fillText('Hi, 这篇文章很精彩,', 40, 770);
-        Rose.fillText('我想转发给你！', 40, 820);
-        Rose.setFillStyle('#999');
-        Rose.setFontSize(20);
-        Rose.fillText('长按识别阅读文章', 380, 950);
+        Worm.setTextAlign('left');
+        Worm.setFontSize(28);
+        Worm.setFillStyle('#666');
+        Worm.fillText('Hi, 这篇文章很精彩,', 40, 770);
+        Worm.fillText('我想转发给你！', 40, 820);
+        Worm.setFillStyle('#999');
+        Worm.setFontSize(20);
+        Worm.fillText('长按识别阅读文章', 380, 950);
         wx.showToast({
           title: '分享图片生成中...',
           icon: 'loading',
           duration: 1000
         });
-        Rose.draw();
+        Worm.draw();
         // 将生成好的图片保存到本地，需要延迟一会，绘制期间耗时
         setTimeout(function() {
           wx.canvasToTempFilePath({

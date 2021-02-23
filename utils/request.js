@@ -1,7 +1,7 @@
 /*
   域名
 */
-const GLOBAL_API_DOMAIN = "";
+const GLOBAL_API_DOMAIN = "https://www.wormertan.cn/demo/wormer_api";
 /*
   封装request
 */
@@ -49,7 +49,7 @@ function MyHttp(defaultParams, ALL_API) {
     resource[actionName] = (pdata) => {
       let _params_data = pdata;
       return sendRrquest(_build_url + _config.url, _config.method, _params_data, {
-        'content-type': 'application/x-www-form-urlencoded;charset=utf-8;Authorization;'
+        'content-type': 'application/json;charset=utf-8;Authorization;'
       });
     }
   }

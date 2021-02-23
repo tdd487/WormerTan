@@ -1,6 +1,6 @@
 var common = {
   formatDate: function (time) {
-    var date = getDate(time * 1000);
+    var date = getDate(time);
     var year = date.getFullYear();
     var month = date.getMonth() + 1;
     var day = date.getDate();
