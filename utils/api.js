@@ -21,14 +21,22 @@ const ALL_API = {
     method: 'POST',
     url: ''
   },
-  // postcomments: { //发布评论
-  //   method: 'POST',
-  //   url: '/index.php?m=content&c=wxcomment&a=publish'
-  // },
-  // showday: { //时间轴
-  //   method: 'POST',
-  //   url: '/index.php?m=content&c=punch&a=lists'
-  // },
+  saveUserInfo: { //保存用户信息
+    method: 'POST',
+    url: '/saveUserInfo'
+  },
+  saveComment: { //发布评论
+    method: 'POST',
+    url: '/comment/saveComment'
+  },
+  saveTimeriver: { //保存时间长河
+    method: 'POST',
+    url: '/addTimeRiver'
+  },
+  findByType: { //时间轴
+    method: 'POST',
+    url: '/findTimeRiver'
+  },
   // everyadd: { //打卡添加
   //   method: 'POST',
   //   url: '/index.php?m=content&c=punch&a=add'

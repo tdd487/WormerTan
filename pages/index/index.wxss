@@ -1,3 +1,20 @@
+.Worm-getuser {
+  position: fixed;
+  width: 60rpx;
+  height: 60rpx;
+  right: 20rpx;
+  bottom: 40rpx;
+  border: 2rpx solid #1d8f59;
+  z-index: 2;
+  border-radius: 4rpx;
+  background: #fff;
+  color: #1d8f59;
+  text-align: center;
+  line-height: 60rpx;
+  padding: 0;
+}
+
+
 .Worm-floor1 {
   background: #adb4b1;
   color: #fff;

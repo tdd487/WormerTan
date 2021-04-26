@@ -1,86 +1,31 @@
 <!--pages/more/more.wxml-->
-<button class="Rose-getuser" wx:if="{{canIUse && !isRose}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
-  <icon class="iconfont icon-yonghu2"></icon>
-</button>
-<view class="Rose-form" wx:if="{{isRose}}">
-  <view class="Rose-section">
-    <view class="Rose-section_title">标题</view>
-    <input name="time" name="title" value="{{title}}" class="Rose-input" bindinput="forTitle" />
+<view   bindtap="hideData">
+  <icon class="iconfont icon-xiangshang" wx:if="{{ month.monthShow }}" ></icon>
+  <icon class="iconfont icon-xiangxia" wx:else></icon>
+</view>
+<view class="Worm-form" wx:if="{{isWorm}}">
+  <view class="Worm-section">
+    <view class="Worm-section_title">标题</view>
+    <input name="time" name="title" value="{{title}}" class="Worm-input" bindinput="forTitle" />
   </view>
-  <view class="Rose-section">
-    <view class="Rose-section_title">内容</view>
-    <textarea name="beizhu" name="remark" class="Rose-input" value="{{remark}}" bindinput="forRemark" maxlength="-1" placeholder="说点什么吧"></textarea>
+  <view class="Worm-section">
+    <view class="Worm-section_title">内容</view>
+    <textarea name="beizhu" name="remark" class="Worm-input" value="{{remark}}" bindinput="forRemark" maxlength="-1" placeholder="说点什么吧"></textarea>
   </view>
-  <view class="Rose-section">
-    <view class="Rose-section_title"></view>
+  <view class="Worm-section">
+    <view class="Worm-section_title"></view>
     <view class="Rose-upimg">
       <icon class="iconfont icon-tupian" ontap="chooseImg" wx:if="{{images.length < 3}}"></icon>
     </view>
   </view>
-  <view class="Rose-section" wx:if="{{ images.length!=0 }}">
-    <view class="Rose-section_title"></view>
-    <view class="Rose-upimg">
-      <view class="Rose-imgbox" wx:for="{{images}}" wx:for-item="upitem" wx:key="*this">
-        <image class="Rose-image" src="{{upitem}}" data-arr="{{images}}" mode="aspectFit" data-idx="{{index}}" bindtap="imagePreview"></image>
-        <view class="Rose-remover" data-idx="{{index}}" bindtap="removeImage">
-          <icon class="iconfont icon-shanchu"></icon>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class="Rose-section">
-    <button class="Rose-btn" disabled="{{disabled}}" bindtap="formSubmit">提交</button>
+  <view class="Worm-section">
+    <button class="Worm-btn" disabled="{{disabled}}" bindtap="formSubmit">提交</button>
   </view>
 </view>
-<view class="Rose-form">
-  <view wx:for="{{bigData}}" wx:key="index" wx:for-index="num" wx:for-item="years">
-    <view class="Rose-year-line" wx:for="{{years}}" wx:key="index" wx:for-item="year">
-      <view class="Rose-year">
-        <icon class="iconfont icon-md-shijian"></icon>
-        {{index}}
-      </view>
-      <view class="Rose-month-list" wx:for="{{year}}" wx:for-index="idx" wx:key="idx" wx:for-item="month" wx:if="{{month[month.monthNum].length!=0}}">
-        <view class="Rose-month" bindtap="hideData" data-num="{{num}}" data-year="{{index}}" data-index="{{idx}}" data-month="{{month.monthNum}}">
-          <icon class="iconfont icon-xiangshang" wx:if="{{ month.monthShow }}"></icon>
-          <icon class="iconfont icon-xiangxia" wx:else></icon>
-          {{month.monthNum}}
-        </view>
-        <view class="Rose-day-list" wx:for="{{ month[month.monthNum] }}" wx:for-index="ix" wx:key="ix" wx:for-item="day" wx:if="{{ month.monthShow }}">
-          <view class="Rose-circle">
-            <icon class='iconfont icon-xuanzhong'></icon>
-          </view>
-          <view class="Rose-day">{{ix}}</view>
-          <view class="Rose-itemline-item">
-            <view class="Rose-event" wx:for="{{day}}" wx:for-index="i" wx:for-item="dd" wx:key="i" data-forid="{{dd.id}}" bindlongpress="editItem">
-              <view class="Rose-event-icon">
-                <view>
-                  <icon class="iconfont icon-like"></icon>
-                  <!--  198 -->
-                </view>
-              </view>
-              <view class="Rose-contentbox">
-                <view class="Rose-title">{{dd.title}}</view>
-                <view class="Rose-time">{{dd.insert_time}}</view>
-                <view class="Rose-content">{{dd.remark}}</view>
-                <!-- 如果是Rose，才可以编辑 -->
-                <view class="Rose-item">
-                  <block wx:for="{{dd.imgs}}" wx:key="mm" wx:for-item="imagess">
-                    <view class="Rose-imgbox">
-                      <image class="Rose-img" src="{{imagess}}" data-idx="{{index}}" mode="widthFix" data-arr="{{dd.imgs}}" bindtap="imagePreview"></image>
-                    </view>
-                  </block>
-                </view>
-                <view class="Rose-icon-item" wx:if="{{showEdit && isRose && showid==dd.id}}">
-                  <icon class="iconfont icon-shanchu" data-id="{{dd.id}}" bindtap="deleteOne"></icon>
-                  <icon class="iconfont icon-dianping" data-id="{{dd.id}}" data-title="{{dd.title}}" data-remark="{{dd.remark}}" bindtap="editOne"></icon>
-                </view>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
-  </view>
+<view class="Worm-form" wx:for="{{items}}" wx:key="index" data-id="{{item.id}}">
+  <view class="Worm-time">{{item.createTime}}</view>
+  <view class="Worm-title">{{item.title}}</view>
+  <view class="Worm-content">{{item.content}}</view>
 </view>
 <view class="allLoaded" wx:if="{{!loadMore}}">
   <text class="line-word">我是有底线滴~</text>

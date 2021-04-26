@@ -1,6 +1,6 @@
 {
   "enablePullDownRefresh": false,
-  "navigationBarTitleText": "打卡",
+  "navigationBarTitleText": "时间长河",
   "usingComponents": {
     "loading": "../../components/loading/loading",
     "backtop": "../../components/backtop/backtop"

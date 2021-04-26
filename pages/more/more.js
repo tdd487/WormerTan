@@ -7,53 +7,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    images: [],
-    bigData: [],
-    catid: '',
-    disabled: true,
-    loadMore: true,
-    monthData: [], //存储月数据
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    year: String(new Date().getFullYear()),
-    month: String(new Date().getMonth() + 1).padStart(2, '0'),
-    isRose: false,
-    showEdit: false,
-    id: '',
-    aids: [],
-    dataIndex: 0, //为了得到bigdata中的数组，特别是是换年
-    barText: ['愿我好工作', '读书', '学一门外语', '记录生活琐事', '摄影']
+    catid:'',
+    items:[],
+    years:[{year:2021},{year:2020}],
+    months:[1,2,3,4,5,6,7,8,9,10,11,12],
+    isWorm:false
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this;
+    var that = this
     that.setData({
-      catid: options.catid,
-    });
-    wx.setNavigationBarTitle({
-      title: that.data.barText[options.catid - 1]
-    });
-    wx.getSetting({
-      success: function(res) {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
-          wx.getUserInfo({
-            success: function(res) {
-              var userInfo = res.userInfo;
-              if (userInfo.nickName == 'Wormer') {
-                that.setData({
-                  isRose: true
-                })
-              }
-              username = userInfo.nickName;
-            },
-            fail: function(res) {}
-          });
-        }
-      }
-    });
-    that.getLine();
+      catid:options.catid
+    })
+    let _params = {
+      type:options.catid
+    }
+    console.log('用户缓存',wx.getStorageSync('userInfo'))
+    if(wx.getStorageSync('userInfo').nickName == 'ㅤ' && that.catid == '1') {
+      Api.findByType(_params).then(res=>{
+        console.log('生活数据',res);
+        that.setData({
+          items:res.data.data
+        })
+      })
+    }else {
+      Api.findByType(_params).then(res=>{
+        console.log(that.catid == '2'?'读书数据':that.catid == '3'?'工作数据':'',res);
+        that.setData({
+          items:res.data.data
+        })
+      })
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -79,136 +65,20 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    var that = this;
-    if (that.data.loadMore) {
-      that.earMonth(); //上个月的时间
-    }
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-    return {
-      title: `锲而舍之,朽木不折;锲而不舍,金石可镂`,
-      imageUrl: '/assets/images/share.jpg'
-    }
+   
   },
-  forTitle(e) { //打卡数据验证
-    var that = this;
-    let _data = e.detail.value;
-    that.setData({
-      title: _data
-    });
-    if (that.data.title && that.data.remark) {
-      that.setData({
-        disabled: false
-      });
-    } else {
-      that.setData({
-        disabled: true
-      });
-    }
+  forTitle(e) {
   },
-  forRemark(e) { //打卡数据验证
-    var that = this;
-    let _data = e.detail.value;
-    that.setData({
-      remark: _data
-    });
-    if (that.data.title && that.data.remark) {
-      that.setData({
-        disabled: false
-      });
-    } else {
-      that.setData({
-        disabled: true
-      });
-    }
+  forRemark(e) {
   },
-  earMonth(n) { //获取年月
-    var that = this;
-    var ym, year, month;
-    year = that.data.year;
-    month = that.data.month;
-    ym = `${year}-${month}`;
-    if (new Date(ym).getMonth() == 0) {
-      year = year - 1;
-      month = 12;
-      let big = that.data.bigData;
-      let index = that.data.dataIndex + 1;
-      let datas = {
-        [year]: {}
-      }
-      big.push(datas);
-      that.setData({
-        dataIndex: index,
-        monthData: [],
-        bigData: big
-      });
-    } else {
-      year = year;
-      month = month - 1;
-    }
-    year = String(year);
-    month = String(month).padStart(2, '0')
-    that.setData({
-      year: year,
-      month: month
-    });
-    that.getLine();
+  earMonth(n) {
   },
-  getLine() { //拉取数据并且处理
-    var that = this; 
-    let year = that.data.year;
-    let month = that.data.month;
-    var big = that.data.bigData;
-    var dataIndex = that.data.dataIndex;
-
-
-    var thisMonthData = {};
-    var ym = `${year}-${month}`;
-    if (Date.parse(new Date(ym)) < 1530403200000) {
-      that.setData({
-        loadMore: false
-      });
-      return false;
-    }
-    let _params = {
-      year: year,
-      month: month,
-      catid: that.data.catid,
-    }
-    Api.showday(_params).then(res => {
-      if (!res.data.code) {
-        var _data = res.data.data;
-        thisMonthData = _data;
-        
-        thisMonthData['monthNum'] = month;
-        thisMonthData['monthShow'] = true;
-        var _monthData = that.data.monthData;
-        _monthData = [..._monthData, ...[thisMonthData]];
-        if (that.data.month != '01') { //换年了
-          big[dataIndex] = {
-            [year]: _monthData
-          }
-        } else {
-          var ss = {
-            [year]: _monthData
-          }
-          big[dataIndex] = ss;
-        }
-        that.setData({
-          bigData: big,
-          monthData: _monthData
-        });
-        let _count = Object.keys(_data[month]).length;
-        if (_count < 3 || that.data.bigData.length == 0) { //月初没有数据或者数据较少的时候加载上个月的数据
-          that.earMonth(); //上个月的时间
-          return false;
-        }
-        wx.hideLoading();
-      }
-    });
+  getLine() { 
   },
   bindGetUserInfo(res) {
     var that = this;
@@ -419,20 +289,8 @@ Page({
   },
   hideData(e) { //隐藏该月的数组
     var that = this;
-    let dDate = e.currentTarget.dataset;    
-    let _num = e.currentTarget.dataset.num;
-    let _year = e.currentTarget.dataset.year;
-    let _index = e.currentTarget.dataset.index;
-    let _month = e.currentTarget.dataset.month;
-
-    let _bigData = that.data.bigData;
-    _bigData[_num][_year][_index]['monthShow'] = !_bigData[_num][_year][_index]['monthShow'];
-    that.setData({
-      bigData: _bigData
-    })
-    //当还有数据，而且这个月是被收缩的，而且小于上一次加载的月，才加载数据
-    if (that.data.loadMore && !_bigData[_num][_year][_index]['monthShow'] && _month <= this.data.month) {
-      that.earMonth(); //上个月的时间
-    }
+    debugger;
+    this.isWorm = true;
+    console.log('hideData',that.isWorm);
   }
 })

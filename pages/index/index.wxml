@@ -1,6 +1,7 @@
 <!--pages/index/index.wxml-->
 <wxs module="comm" src="../comm.wxs"></wxs>
 <view class="Worm-floor1">
+  <button class="Worm-getuser" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"><icon class="iconfont icon-yonghu2"></icon></button>
   <swiper class="Worm-swiper" indicator-dots="{{true}}" autoplay="{{true}}" interval="{{30000}}" duration="{{200}}" circular="{{true}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="rgba(255,255,255,0.8)">
     <swiper-item wx:for="{{notices}}" wx:key="index" wx:for-item="notice" data-id="{{notice.id}}" data-catid="{{notice.catid}}" ontap="">
       <view class="Worm-top-quote">{{notice.title}}</view>
@@ -9,7 +10,7 @@
   </swiper>
 </view>
 <view class="Worm-floor2">
-  <!--<view class="Worm-menu">
+  <view class="Worm-menu">
     <view class="Worm-kinds" wx:for="{{every}}" wx:for-item="i" wx:key="index" >
       <navigator url="../more/more?catid={{ i.id }}" hover-class="none">
         <view class="Worm-circle Rose-{{'color'+ i.id}}">
@@ -18,7 +19,7 @@
         {{i.name}}
       </navigator>
     </view>
-  </view>-->
+  </view>
 </view>
 <!-- 菜单 -->
 <view class="Worm-lists">

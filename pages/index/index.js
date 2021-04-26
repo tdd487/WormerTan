@@ -1,5 +1,6 @@
 // pages/index/index.js
 import Api from '/../../utils/api.js';
+import login from '/../../utils/login.js';
 const app = getApp();
 var page = 1;
 Page({
@@ -8,18 +9,21 @@ Page({
    */
   data: {
     isPlay: true,
-    notices: [],
+    notices: [
+      // {id:'1',catid:'1',title:'情绪',description:'没有什么情绪是叹一口气缓解不了的，如果有，就叹两口 气；就像没有什么肚腩是吸一口气藏不住的，如果有，就用力 吸！'},
+      // {id:'2',catid:'2',title:'忍耐',description:'这个世界上最厉害的人，不是手里的武器有多 先进，不是银行卡里的余额有多可观，不是脑子里的人生哲理有 多深厚，而是控制情绪的能力有多强。'}
+  ],
     items: [],
     loadMore: false,
     every: [{
       icon: 'icon-yinyue',
       name: '生活',
-      id: 4
+      id: 1
     },
     {
       icon: 'icon-xiangmu',
       name: '工作',
-      id: 1
+      id: 3
     },
     {
     icon: 'icon-book',
@@ -81,11 +85,12 @@ Page({
    */
   onShareAppMessage: function () {
     return {
-      title: '锲而舍之,朽木不折;锲而不舍,金石可镂',
+      title: '',
       imageUrl: '/assets/images/share.jpg'
     }
   },
   articleDetail(e) {
+    
     let {id, catid} = e.currentTarget.dataset;
     wx.navigateTo({
       url: `../detail/detail?catid=${catid}&id=${id}`
@@ -97,10 +102,16 @@ Page({
       pageNo: page,
       pagesize: 8
     }
-    Api.all(params).then(res => { //文章列表
+    Api.all(params).then(res => { //文章列表,过滤thumb为1的数据
       if (200 == res.data.code) {
         let _data = res.data.data;
-        let _items = [...that.data.items, ..._data];
+        let _itemss = [];
+        for(var i =0;i<_data.length;i++) {
+          if(_data[i].thumb != '1') {
+            _itemss.push(_data[i]);
+          }
+        }
+        let _items = [...that.data.items, ..._itemss];
         if (_data.length < 8) {
           that.setData({
             loadMore: false
@@ -109,7 +120,6 @@ Page({
         that.setData({
           items: _items
         });
-        console.log(_items);
       }
     });
   },
@@ -134,8 +144,14 @@ Page({
       console.log("你是睡");
       if (!that.data.code) {
         let _data = res.data.data;
+        let _notices = [];
+        for(var i = 0;i<_data.length;i++) {
+          if(_data[i].thumb == '1'){
+            _notices.push(_data[i]);
+          }
+        }
         that.setData({
-          notices: _data,
+          notices: _notices,
         })
         that.getLists();
         wx.hideLoading();
@@ -162,5 +178,21 @@ Page({
         isPlay: true
       });
     }
-  }
+  },
+  bindGetUserInfo(res) {
+    debugger;
+    var that = this;
+    var userInfo = {};
+    if (res) {
+      userInfo = res.detail.userInfo;
+      wx.setStorageSync('userInfo', res.detail.userInfo);
+    } else {
+      wx.getUserInfo({
+        success: function(res) {
+          wx.setStorageSync('userInfo', res.detail.userInfo);
+        }
+      })
+    }
+    console.log(wx.getStorageSync('userInfo'));
+  },
 })

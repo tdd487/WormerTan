@@ -72,20 +72,19 @@
 <!-- 发表评论 -->
 <view class="Worm-fixed" wx:if="{{catid!=='19' && id !='124' && id !='145'}}">
   <view class="Worm-flex">
-    <view class="Worm-none Worm-center" bindtap="wetherLike">
+    <!-- <view class="Worm-none Worm-center" bindtap="wetherLike">
       <icon class="iconfont {{ like?'icon-heart-fill':'icon-heart'}}"></icon>
       {{likenum}}
-    </view>
-    <view class="Worm-none Worm-center" bindtap="commentBox">
+    </view> -->
+    <!-- <view class="Worm-none Worm-center" bindtap="commentBox">
       <icon class="iconfont icon-plus-circle"></icon>更多
-    </view>
-    <form class="Worm-flexform" report-submit='true' bindsubmit='postComments'>
+    </view> -->
+    <!-- <form class="Worm-flexform" report-submit='true' bindsubmit='postComments'>
       <input class="Worm-input" value="{{content}}" bindinput="forRemark" focus="{{focus}}" bindconfirm="postComments" maxlength="-1" placeholder="{{placeholder}}"  />
-
-    </form>
+    </form> -->
     <view class="Worm-none Worm-center" bindtap="commentNow">
-      <!-- <icon class="iconfont icon-message"></icon>{{count}} -->
-      <button class="Worm-none Worm-post" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">提交</button>
+      <!-- <icon class="iconfont icon-message"></icon>{{count}}
+      <button class="Worm-none Worm-post" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">提交</button> -->
     </view>
 
   </view>

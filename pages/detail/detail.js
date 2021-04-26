@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    userIdd:0,
     items: {},
     dkcontent: '',
     id: '',
@@ -16,7 +17,7 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     disabled: true,
     loadMore: true,
-    focus: false,
+    focus: true,
     userInfo: {},
     content: '',
     placeholder: '爱发言的人运气都不会太差',
@@ -257,72 +258,44 @@ Page({
     }
   },
   bindGetUserInfo(e) {
+    console.log("bindGetUserInfo")
     var that = this;
-    var userInfo = {};
-    if (e.detail.userInfo) {
-      userInfo = e.detail.userInfo;
-    } else {
-      wx.getUserInfo({
-        success: function (res) {
-          userInfo = res.userInfo;
-        },
-        fail: function (res) {
-          wx.showModal({
-            showCancel: false,
-            confirmColor: '#adb4b1',
-            confirmColor: '#adb4b1',
-            content: '授权通过后才能评论哟，请重新授权！'
-          })
+    var userInfovarvar = {};
+    wx.getUserInfo({
+      success: function (res) {
+        userInfovarvar = res.userInfo
+        let _params = {
+          "nickName": res.userInfo.nickName,
+          "avatarUrl": res.userInfo.avatarUrl,
+          "gender": res.userInfo.gender,
+          "country": res.userInfo.country,
+          "province": res.userInfo.province,
+          "city": res.userInfo.city, 
+          "language": res.userInfo.language
         }
-      })
-    }
-    if (JSON.stringify(userInfo) == '{}') return false;
-    that.setData({
-      userInfo: userInfo
+        console.log("======================userInfovarvar======================");
+        console.log(JSON.stringify(userInfovarvar));
+        Api.saveUserInfo(_params).then(res =>{
+          userInfovarvar.id = res.data.data
+          that.setData({
+            userInfo: userInfovarvar
+          })
+        });
+        console.log("======================userInfo======================");
+        console.log(JSON.stringify(userInfovarvar));
+      },
+      fail: function (res) {
+        wx.showModal({
+          showCancel: false,
+          confirmColor: '#adb4b1',
+          confirmColor: '#adb4b1',
+          content: '授权通过后才能评论哟，请重新授权！'
+        })
+      }
     })
-    that.postComments()
+    
   },
   postComments() {
-    var that = this;
-    if (!that.data.content) {
-      wx.showModal({
-        showCancel: false,
-        confirmColor: '#adb4b1',
-        content: '评论不能为空!'
-      });
-      return false;
-    }
-    if (!that.data.userInfo) return false;
-    wx.showLoading();
-    let _params = {
-      newsid: that.data.id, // 博客文章ID
-      pid: that.data.pid, // 父评论ID，默认为0
-      from_username: that.data.userInfo.nickName, // 评论者用户名
-      from_avatar: that.data.userInfo.avatarUrl, // 评论者头像
-      reply_username: that.data.reply_username, // 回复了谁，pid不为0时，不允许未空
-      reply_avatar: "", // 回复了谁的头像，允许为空
-      content: that.data.content
-    }
-    Api.postcomments(_params).then(res => {
-      if (!res.data.code) {
-        wx.hideLoading();
-        wx.showToast({
-          title: '评论成功',
-          icon: 'success',
-          duration: 2000
-        })
-        that.setData({
-          content: '',
-          page: 1,
-          comments: [],
-          reply_username: '',
-          pid: 0,
-          placeholder: '点击评论回复...',
-          disabled: true
-        });
-        that.commentlists();
-      }
-    });
   },
   commentlists() {
     var that = this;
